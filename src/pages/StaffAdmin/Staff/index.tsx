@@ -18,7 +18,7 @@ import {Tooltip} from 'antd';
 
 const StaffList: React.FC = () => {
   const [syncLoading, setSyncLoading] = useState<boolean>(false);
-  const [currentDepartment, setCurrentDepartment] = useState('0');
+  const [currentDepartment, setCurrentDepartment] = useState('1');
   const actionRef = useRef<ActionType>();
 
   const getDepartmentKey = (key: string) => {
@@ -180,7 +180,7 @@ const StaffList: React.FC = () => {
           </div>
         )}
         params={{
-          ext_department_ids: currentDepartment !== '0' ? currentDepartment : '0',
+          ext_department_ids: currentDepartment !== '0' ? currentDepartment : undefined,
         }}
         request={async (params, sort, filter) => {
           return ProTableRequestAdapter(params, sort, filter, QueryStaffsList);

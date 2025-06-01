@@ -6,6 +6,12 @@ import theme from './theme';
 
 const {REACT_APP_ENV} = process.env;
 
+// Define a type for the proxy keys
+type ProxyEnvKey = keyof typeof proxy;
+
+// Determine the current environment, defaulting to 'dev'
+const currentProxyEnv = (REACT_APP_ENV || 'dev') as ProxyEnvKey;
+
 export default defineConfig({
   hash: true,
   antd: {},
@@ -27,7 +33,7 @@ export default defineConfig({
   theme: theme,
   title: false,
   ignoreMomentLocale: true,
-  proxy: proxy[REACT_APP_ENV || 'dev'],
+  proxy: proxy[currentProxyEnv],
   manifest: {
     basePath: '/',
   },

@@ -290,11 +290,11 @@ const Welcome: React.FC<WelcomeProps> = (props) => {
               <div>
                 <Typography.Paragraph style={{marginBottom: 6}}>
                   <Typography.Text style={{color: '#6b7a88'}}>企业名称：</Typography.Text>
-                  <Typography.Text>成都小橘科技有限公司</Typography.Text>
+                  <Typography.Text>{summary?.corp_name || '加载中...'}</Typography.Text>
                 </Typography.Paragraph>
                 <Typography.Paragraph style={{marginBottom: 0}}>
                   <Typography.Text style={{color: '#6b7a88'}}>员工总数：</Typography.Text>
-                  <Typography.Text>12</Typography.Text>
+                  <Typography.Text>{summary?.total_staffs_num || '加载中...'}</Typography.Text>
                 </Typography.Paragraph>
               </div>
             </ProCard>
